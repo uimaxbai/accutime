@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 // TODO: let it work without window
 
 module.exports = (env) => {
+  
   let obj = [{
     entry: './src/index.ts',
     devtool: 'inline-source-map',
@@ -52,7 +53,7 @@ module.exports = (env) => {
       globalObject: 'this',
       library: {
         name: 'accutime',
-        type: 'commonjs-module',
+        type: 'module',
       },
       path: path.resolve(__dirname, 'dist'),
     },
@@ -94,4 +95,5 @@ module.exports = (env) => {
     obj[1].output.filename = 'accutime.mjs';
   }
   return obj;
+  // TODO https://webpack.js.org/configuration/experiments/
 };
